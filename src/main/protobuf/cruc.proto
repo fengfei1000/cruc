@@ -1,0 +1,38 @@
+package fengfei.cruc.proto;
+option java_package = "fengfei.cruc.proto";
+option java_outer_classname = "CrucProto";
+option java_generic_services = true;
+
+
+message StatusResult {
+	required int32 code = 1;
+	required string message = 2;
+}
+
+
+message PingRequest{
+	required string cmd = 1;
+}
+
+message PingResponse{
+	required StatusResult result = 1;
+	required string pong = 2;
+}
+message CallRequest{
+ 	required string namegroup = 1;
+	required  string interfaceName = 2;
+	required  int32 version = 3;
+	repeated  string params = 4;
+}
+
+message CallResponse{
+	required StatusResult result = 1;
+	required bytes value = 2;
+}
+
+service CrucService{
+	rpc ping(PingRequest) returns (PingResponse);	
+	rpc call(CallRequest) returns (CallResponse);
+ 
+ 
+}

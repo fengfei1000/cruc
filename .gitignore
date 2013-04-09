@@ -166,3 +166,6 @@ pip-log.txt
 
 /target
 /target
+/src/main/avro/avro-tools-1.7.4.jar
+/src/generated
+/src/main/protobuf/protoc-2.5.0.exe

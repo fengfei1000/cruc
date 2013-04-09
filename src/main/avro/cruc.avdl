@@ -1,0 +1,12 @@
+@namespace("fengfei.cruc.avro")
+protocol CrucProtocol {
+
+  error CrucException {
+   	int code;
+    string description;
+  }
+
+  string ping(string cmd) throws CrucException;
+  bytes call(string namegroup, string interfaceName, int version, array<string> params) throws CrucException;
+ 
+}

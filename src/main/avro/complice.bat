@@ -1,0 +1,1 @@
+java -jar avro-tools-1.7.4.jar compile schema cruc.avpr ../generated

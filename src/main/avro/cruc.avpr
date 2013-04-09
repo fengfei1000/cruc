@@ -1,0 +1,45 @@
+{
+  "protocol" : "CrucProtocol",
+  "namespace" : "fengfei.cruc.avro",
+  "types" : [ {
+    "type" : "error",
+    "name" : "CrucException",
+    "fields" : [ {
+      "name" : "code",
+      "type" : "int"
+    }, {
+      "name" : "description",
+      "type" : "string"
+    } ]
+  } ],
+  "messages" : {
+    "ping" : {
+      "request" : [ {
+        "name" : "cmd",
+        "type" : "string"
+      } ],
+      "response" : "string",
+      "errors" : [ "CrucException" ]
+    },
+    "call" : {
+      "request" : [ {
+        "name" : "namegroup",
+        "type" : "string"
+      }, {
+        "name" : "interfaceName",
+        "type" : "string"
+      }, {
+        "name" : "version",
+        "type" : "int"
+      }, {
+        "name" : "params",
+        "type" : {
+          "type" : "array",
+          "items" : "string"
+        }
+      } ],
+      "response" : "bytes",
+      "errors" : [ "CrucException" ]
+    }
+  }
+}
