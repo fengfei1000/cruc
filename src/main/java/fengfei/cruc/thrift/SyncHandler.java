@@ -2,12 +2,10 @@ package fengfei.cruc.thrift;
 
 import java.nio.ByteBuffer;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.thrift.TException;
 
-import fengfei.cruc.thrift.CrucException;
 import fengfei.cruc.thrift.CrucService.Iface;
 
 public class SyncHandler implements Iface {

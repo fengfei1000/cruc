@@ -1,6 +1,10 @@
 package fengfei.cruc.avro;
 
+import java.net.InetSocketAddress;
+
+import org.apache.avro.ipc.NettyServer;
 import org.apache.avro.ipc.Server;
+import org.apache.avro.ipc.specific.SpecificResponder;
 
 import fengfei.cruc.CrucServer;
 
@@ -9,9 +13,9 @@ public class AvroServer implements CrucServer {
 
 	@Override
 	public boolean start() {
-//		server = new NettyServer(new SpecificResponder(Mail.class,
-//				new MailImpl()), new InetSocketAddress(65111));
-	 
+		server = new NettyServer(new SpecificResponder(CrucProtocol.class,
+				new CrucProtocolImpl()), new InetSocketAddress(8022));
+
 		return false;
 	}
 
@@ -31,8 +35,10 @@ public class AvroServer implements CrucServer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Server server = new NettyServer(new SpecificResponder(
+				CrucProtocol.class, new CrucProtocolImpl()),
+				new InetSocketAddress(8022));
+		server.start();
 	}
 
 }
